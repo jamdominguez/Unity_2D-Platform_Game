@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     private int totalScorePoints;
     private int fruits;
+    private bool isLevelCompleted = false;
+    private bool isGamePaused;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class LevelManager : MonoBehaviour
 
         fruits = fruitsContainer.transform.childCount;
         currentScene = SceneManager.GetActiveScene().name;
+        ResumeGame();
 
         Debug.Log("LevelManager - fruits: " + fruits + "  currentScene: " + currentScene);
     }
@@ -42,6 +45,12 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F2)) SceneManager.LoadScene("Level2");
         if (Input.GetKeyDown(KeyCode.F3)) SceneManager.LoadScene("Level3");
         if (Input.GetKeyDown(KeyCode.F4)) SceneManager.LoadScene("Level4");
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (!isGamePaused) PauseGame();
+            else ResumeGame();
+        }
+        
         currentScene = SceneManager.GetActiveScene().name;
     }
 
@@ -66,8 +75,29 @@ public class LevelManager : MonoBehaviour
         Debug.Log("AllFruitsCollected");
     }
 
+    public void FuncionChorra() {
+        Debug.Log("FuncionChorra");
+    }
+
     public void LevelCompleted() {
-        Debug.Log("LevelCompleted");        
+        Debug.Log("LevelCompleted");
+        isLevelCompleted = true;
+    }
+
+    public bool IsLevelCompleted() {
+        return isLevelCompleted;
+    }
+
+    public void PauseGame() {
+        isGamePaused = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame() {
+        isGamePaused = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        Time.timeScale = 1;
     }
 
 

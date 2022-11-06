@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isDead) CheckMovement();
+        if (!isDead && !LevelManager.levelManager.IsLevelCompleted()) CheckMovement();
     }
 
     private void CheckMovement() {
