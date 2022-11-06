@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
-    private int score;
+    private int totalScorePoints;
 
     // Start is called before the first frame update
     void Start()
@@ -28,18 +28,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void updateScore(string fruitName) {
-        switch (fruitName) {
-            case "Apple": score += 1;
-                break;
-            case "Pinapple": score += 2;
-                break;
-            case "Melon": score += 3;
-                break;
-            default: Debug.LogError("Fruit not recognized!!, possible error");
-                break;
-        }
-        Debug.Log("score:" + score);
+    public void updateScore(int scorePoints) {
+        totalScorePoints += scorePoints;
+        Debug.Log("scorePoints:" + scorePoints + "  totalScorePoints:" + totalScorePoints);
     }
 
 
