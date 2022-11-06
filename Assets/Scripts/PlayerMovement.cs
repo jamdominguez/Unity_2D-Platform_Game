@@ -69,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
         if (rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space)) rigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
     }
 
+    public void Hurt(int damage) {
+        Debug.Log("Hurt with damage:" + damage);
+        animator.SetTrigger("hurt");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Ground") {
