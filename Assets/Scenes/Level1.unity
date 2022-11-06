@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4776,6 +4776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1811176527}
     m_Modifications:
+    - target: {fileID: 1246525083, guid: 0122c23acb1e4274088354ec4daa3b5f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7835953666822426473, guid: 0122c23acb1e4274088354ec4daa3b5f, type: 3}
       propertyPath: m_Name
       value: Pinapple
@@ -5206,7 +5210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7835953666822426478, guid: 0122c23acb1e4274088354ec4daa3b5f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7835953666822426478, guid: 0122c23acb1e4274088354ec4daa3b5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5403,10 +5407,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1811176527}
     m_Modifications:
-    - target: {fileID: 6068939600422548995, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
       propertyPath: m_RootOrder
       value: 0

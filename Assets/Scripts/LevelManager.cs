@@ -7,12 +7,14 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager levelManager;
     public GameObject fruitsContainer;
+    public AudioClip winsAudiClip;
 
     private int totalScorePoints;
     private int fruits;
     private bool isLevelCompleted = false;
     private bool isGamePaused;
     private Scene currentScene;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +34,11 @@ public class LevelManager : MonoBehaviour
 
         fruits = fruitsContainer.transform.childCount;
         currentScene = SceneManager.GetActiveScene();
+        audioSource = GetComponent<AudioSource>();
         ResumeGame();
 
-        Debug.Log("LevelManager - fruits: " + fruits + "  sceneName: " + currentScene.name + "  sceneIndex: " + currentScene.buildIndex);
+        //Debug.Log("LevelManager - fruits: " + fruits + "  sceneName: " + currentScene.name + "  sceneIndex: " + currentScene.buildIndex);
+        //Debug.Log(GetComponent<AudioSource>().clip);
     }
 
     // Update is called once per frame
@@ -66,8 +70,14 @@ public class LevelManager : MonoBehaviour
     }
 
     public void LoadNextLevel() {
-        Debug.Log("Loading next level");        
-        if (currentScene.buildIndex + 1 < 4) SceneManager.LoadScene(currentScene.buildIndex + 1); // 4 Levels (FIXME)
+        Debug.Log("Loading next level");
+        if (currentScene.buildIndex + 1 < 4) {
+            SceneManager.LoadScene(currentScene.buildIndex + 1); // 4 Levels (FIXME)
+        } else {
+            audioSource.Stop();
+            GetComponent<AudioSource>().clip = winsAudiClip;
+            audioSource.Play();
+        }
     }
 
     public void ReloadLevel() {

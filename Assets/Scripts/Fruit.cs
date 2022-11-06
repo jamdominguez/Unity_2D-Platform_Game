@@ -10,6 +10,7 @@ public class Fruit : MonoBehaviour
     {
         if (collision.transform.tag == "Player") {
             GetComponent<Animator>().SetTrigger("collected");
+            GetComponent<AudioSource>().Play();
             LevelManager.levelManager.UpdateScore(scorePoints);            
         }
     }

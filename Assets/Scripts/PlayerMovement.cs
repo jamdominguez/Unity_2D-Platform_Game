@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump() {
         rigidBody2D.velocity = Vector2.up * jumpSpeed;
         animator.SetTrigger("jump");
+        GetComponent<AudioSource>().Play();
         canJump = false;
     }
 
