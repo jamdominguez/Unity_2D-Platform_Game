@@ -1825,68 +1825,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1001 &1078312437
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1811176527}
-    m_Modifications:
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.7476243
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.07325429
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.714653
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549007, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_Name
-      value: Apple (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
---- !u!4 &1078312438 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-  m_PrefabInstance: {fileID: 1078312437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1230666133
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,76 +2026,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1836341181}
-  - {fileID: 1078312438}
   - {fileID: 1684289766}
   - {fileID: 1736971332}
   - {fileID: 107293458}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1836341180
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1811176527}
-    m_Modifications:
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.3333635
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.43090743
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.714653
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068939600422549007, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-      propertyPath: m_Name
-      value: Apple (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
---- !u!4 &1836341181 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6068939600422549005, guid: 6c5f6ab32e091834c9a86ad971baf549, type: 3}
-  m_PrefabInstance: {fileID: 1836341180}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3694897497910877002
 PrefabInstance:
   m_ObjectHideFlags: 0
