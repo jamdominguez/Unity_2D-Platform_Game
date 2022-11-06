@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float jumpVelocity;
+    public float jumpSpeed;
     public float horizontalSpeed;
     public string sceneToReload;
     public float fallMultiplier;
@@ -19,16 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        jumpVelocity = 3.5f;
-        horizontalSpeed = 1.2f;
         sceneToReload = "SampleScene";
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         canJump = false;
-        fallMultiplier = 0.5f;
-        lowJumpMultiplier = 1f;
-
     }
 
     void Update()
@@ -59,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Jump() {
-        rigidBody2D.velocity = Vector2.up * jumpVelocity;
+        rigidBody2D.velocity = Vector2.up * jumpSpeed;
         animator.SetTrigger("jump");
         canJump = false;
     }

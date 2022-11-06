@@ -10,7 +10,7 @@ public class Fruit : MonoBehaviour
     {
         if (collision.transform.tag == "Player") {
             GetComponent<Animator>().SetTrigger("collected");
-            GameManager.gameManager.updateScore(scorePoints);
+            GameManager.gameManager.UpdateScore(scorePoints);
         }
     }
 

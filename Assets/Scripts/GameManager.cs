@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
+    public GameObject fruitsContainer;
 
     private int totalScorePoints;
+    private int fruits;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        fruits = fruitsContainer.transform.childCount;
     }
 
     // Update is called once per frame
@@ -28,9 +32,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void updateScore(int scorePoints) {
+    public void UpdateScore(int scorePoints) {
         totalScorePoints += scorePoints;
-        Debug.Log("scorePoints:" + scorePoints + "  totalScorePoints:" + totalScorePoints);
+        fruits--;
+        //Debug.Log("scorePoints:" + scorePoints + "  totalScorePoints:" + totalScorePoints);
+        Debug.Log("Fruits remains: " + fruits);
+        if (fruits <= 0) LevelCompleted();
+
+    }
+
+    public void LevelCompleted() {
+        Debug.Log("LevelCompleted");
     }
 
 
