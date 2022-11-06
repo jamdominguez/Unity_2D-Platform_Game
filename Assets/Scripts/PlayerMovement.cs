@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float jumpForce;
+    public float jumpVelocity;
     public float horizontalSpeed;
     public string sceneToReload;
     public float fallMultiplier;
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        jumpForce = 3.5f;
+        jumpVelocity = 3.5f;
         horizontalSpeed = 1.2f;
         sceneToReload = "SampleScene";
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -38,32 +38,35 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump
         if (Input.GetKey(KeyCode.Space) && canJump) Jump();
+        //CheckJumpType();
 
         // Horizontal Movement
         if (Input.GetKey(KeyCode.RightArrow)) MoveRight();
         else if (Input.GetKey(KeyCode.LeftArrow)) MoveLeft();
-        else animator.SetBool("isRunning", false);
-        
+        else animator.SetBool("isRunning", false);        
     }
 
     private void MoveRight() {
         rigidBody2D.velocity = new Vector2(horizontalSpeed, rigidBody2D.velocity.y);
-        transform.localScale = new Vector3(1, 1, 1);
+        spriteRenderer.flipX = false;
         if (canJump) animator.SetBool("isRunning", true);
     }
 
     private void MoveLeft() {
         rigidBody2D.velocity = new Vector2(-horizontalSpeed, rigidBody2D.velocity.y);
-        transform.localScale = new Vector3(-1, 1, 1);
+        spriteRenderer.flipX = true;
         if (canJump) animator.SetBool("isRunning", true);
     }
 
     private void Jump() {
-        rigidBody2D.velocity = Vector2.up * jumpForce;
-        if (rigidBody2D.velocity.y < 0) rigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
-        if (rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space)) rigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
+        rigidBody2D.velocity = Vector2.up * jumpVelocity;
         animator.SetTrigger("jump");
         canJump = false;
+    }
+
+    private void CheckJumpType() {
+        if (rigidBody2D.velocity.y < 0) rigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
+        if (rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space)) rigidBody2D.velocity = Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
