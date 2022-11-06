@@ -65,14 +65,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Hurt(int damage) {
-        Debug.Log("Hurt with damage:" + damage);
+        //Debug.Log("Hurt with damage:" + damage);
         hp -= damage;
         animator.SetTrigger("hurt");
         if (hp <= 0)
         {
             isDead = true;
-            Debug.Log("Player DEAD!");
-            Destroy(gameObject, 0.5f);
+            //Debug.Log("Player DEAD!");
+            //Destroy(gameObject, 0.5f);
+            spriteRenderer.enabled = false;
+            LevelManager.levelManager.ReloadLevel();
         }
     }
 
