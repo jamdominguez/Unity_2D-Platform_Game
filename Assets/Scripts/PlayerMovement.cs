@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float horizontalSpeed;
     public string sceneToReload;
-    public float groundedRayCastDistance;
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
@@ -27,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         canJump = false;
-        groundedRayCastDistance = 0.05f;
         fallMultiplier = 0.5f;
         lowJumpMultiplier = 1f;
 
@@ -38,31 +36,26 @@ public class PlayerMovement : MonoBehaviour
         // Reload game
         if (Input.GetKeyDown(KeyCode.F1)) SceneManager.LoadScene(sceneToReload);
 
-        // Check if is grounded        
-        //canJump = Physics2D.Raycast(transform.position, Vector3.down, groundedRayCastDistance) ? true : false;
         // Jump
-        if (Input.GetKey(KeyCode.Space) && canJump) Jump();        
+        if (Input.GetKey(KeyCode.Space) && canJump) Jump();
 
         // Horizontal Movement
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            //rigidBody2D.velocity = Vector2.right * horizontalSpeed;
-            rigidBody2D.velocity = new Vector2(horizontalSpeed, rigidBody2D.velocity.y);
-            transform.localScale = new Vector3(1, 1, 1);
-            if (canJump) animator.SetBool("isRunning", true);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            //rigidBody2D.velocity = Vector2.left * horizontalSpeed;
-            rigidBody2D.velocity = new Vector2(-horizontalSpeed, rigidBody2D.velocity.y);
-            transform.localScale = new Vector3(-1, 1, 1);
-            if (canJump) animator.SetBool("isRunning", true);
-        }
-        else {
-            animator.SetBool("isRunning", false);
-        }
-
+        if (Input.GetKey(KeyCode.RightArrow)) MoveRight();
+        else if (Input.GetKey(KeyCode.LeftArrow)) MoveLeft();
+        else animator.SetBool("isRunning", false);
         
+    }
+
+    private void MoveRight() {
+        rigidBody2D.velocity = new Vector2(horizontalSpeed, rigidBody2D.velocity.y);
+        transform.localScale = new Vector3(1, 1, 1);
+        if (canJump) animator.SetBool("isRunning", true);
+    }
+
+    private void MoveLeft() {
+        rigidBody2D.velocity = new Vector2(-horizontalSpeed, rigidBody2D.velocity.y);
+        transform.localScale = new Vector3(-1, 1, 1);
+        if (canJump) animator.SetBool("isRunning", true);
     }
 
     private void Jump() {
@@ -80,6 +73,4 @@ public class PlayerMovement : MonoBehaviour
             canJump = true;
         }
     }
-
-
 }
