@@ -2255,13 +2255,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1250574012}
     m_Modifications:
+    - target: {fileID: 1488775387, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
+      propertyPath: maxDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3861172874004291351, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
       propertyPath: m_Name
       value: SpikeHead
-      objectReference: {fileID: 0}
-    - target: {fileID: 3861172874004291351, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
-      propertyPath: m_TagString
-      value: Trap
       objectReference: {fileID: 0}
     - target: {fileID: 3861172874004291355, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
       propertyPath: m_RootOrder
@@ -2269,11 +2269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3861172874004291355, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6639706
+      value: -0.649
       objectReference: {fileID: 0}
     - target: {fileID: 3861172874004291355, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37561828
+      value: 0.473
       objectReference: {fileID: 0}
     - target: {fileID: 3861172874004291355, guid: 66697bf8f5c42544a8225911882b090f, type: 3}
       propertyPath: m_LocalPosition.z
