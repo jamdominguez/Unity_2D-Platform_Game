@@ -1,36 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float jumpSpeed;
-    public float horizontalSpeed;
-    public string sceneToReload;
+    public float horizontalSpeed;    
     public float fallMultiplier;
     public float lowJumpMultiplier;
+    public int hp;
 
     private Rigidbody2D rigidBody2D;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private bool canJump;
-    private int fruits;
+    private bool isDead;
 
     void Start()
-    {
-        sceneToReload = "SampleScene";
+    {        
         rigidBody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         canJump = false;
+        isDead = false;
     }
 
     void Update()
     {
-        // Reload game
-        if (Input.GetKeyDown(KeyCode.F1)) SceneManager.LoadScene(sceneToReload);
+        if (!isDead) CheckMovement();
+    }
 
+    private void CheckMovement() {
         // Jump
         if (Input.GetKey(KeyCode.Space) && canJump) Jump();
         //CheckJumpType();
@@ -66,7 +66,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Hurt(int damage) {
         Debug.Log("Hurt with damage:" + damage);
+        hp -= damage;
         animator.SetTrigger("hurt");
+        if (hp <= 0)
+        {
+            isDead = true;
+            Debug.Log("Player DEAD!");
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
