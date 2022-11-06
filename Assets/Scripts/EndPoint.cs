@@ -16,6 +16,10 @@ public class EndPoint : MonoBehaviour
         
     }
 
+    public void ProcessAfterCompleted() {        
+        LevelManager.levelManager.LoadNextLevel();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player" && LevelManager.levelManager.IsAllFruitsCollected())

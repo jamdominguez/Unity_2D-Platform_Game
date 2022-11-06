@@ -7,12 +7,12 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager levelManager;
     public GameObject fruitsContainer;
-    public string currentScene;
 
     private int totalScorePoints;
     private int fruits;
     private bool isLevelCompleted = false;
     private bool isGamePaused;
+    private Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +31,10 @@ public class LevelManager : MonoBehaviour
         if (levelManager == null) levelManager = this;
 
         fruits = fruitsContainer.transform.childCount;
-        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene();
         ResumeGame();
 
-        Debug.Log("LevelManager - fruits: " + fruits + "  currentScene: " + currentScene);
+        Debug.Log("LevelManager - fruits: " + fruits + "  sceneName: " + currentScene.name + "  sceneIndex: " + currentScene.buildIndex);
     }
 
     // Update is called once per frame
@@ -46,12 +46,14 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F3)) SceneManager.LoadScene("Level3");
         if (Input.GetKeyDown(KeyCode.F4)) SceneManager.LoadScene("Level4");
 
+        //if (Input.GetKeyDown(KeyCode.Return)) SceneManager.LoadScene(currentScene.buildIndex + 1);
+
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!isGamePaused) PauseGame();
             else ResumeGame();
         }
         
-        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene();
     }
 
     public void UpdateScore(int scorePoints) {
@@ -63,8 +65,14 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void LoadNextLevel() {
+        Debug.Log("Loading next level");        
+        if (currentScene.buildIndex + 1 < 4) SceneManager.LoadScene(currentScene.buildIndex + 1); // 4 Levels (FIXME)
+    }
+
     public void ReloadLevel() {
-        SceneManager.LoadScene(currentScene);
+        Debug.Log("Reloading level");
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public bool IsAllFruitsCollected() {
