@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitsContainer: {fileID: 0}
+  endPoint: {fileID: 4121585967432988334, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
   winsAudiClip: {fileID: 8300000, guid: 42045d89dba1d8a438f9b78f68399097, type: 3}
 --- !u!82 &4914633794990750179
 AudioSource:

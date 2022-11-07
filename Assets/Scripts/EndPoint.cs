@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void MakeVisible() {
+        Debug.Log("End visible");
+        spriteRenderer.enabled = true;
     }
 
     public void ProcessAfterCompleted() {        

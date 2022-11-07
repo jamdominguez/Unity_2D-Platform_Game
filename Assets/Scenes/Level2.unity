@@ -1119,11 +1119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121585967432988328, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2360456
+      value: 1.514
       objectReference: {fileID: 0}
     - target: {fileID: 4121585967432988328, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48077112
+      value: 0.164
       objectReference: {fileID: 0}
     - target: {fileID: 4121585967432988328, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1163,6 +1163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
+--- !u!1 &617991409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4121585967432988334, guid: 4f1105ff227fc2a47a3d81d69ec87bd5, type: 3}
+  m_PrefabInstance: {fileID: 617991408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &620686083
 GameObject:
   m_ObjectHideFlags: 0
@@ -5966,6 +5971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7315332993957571298, guid: 1cdeae82f7f461540bf8f4f24df82115, type: 3}
+      propertyPath: endPoint
+      value: 
+      objectReference: {fileID: 617991409}
     - target: {fileID: 7315332993957571298, guid: 1cdeae82f7f461540bf8f4f24df82115, type: 3}
       propertyPath: fruitsContainer
       value: 

@@ -7,7 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager levelManager;
     public GameObject fruitsContainer;
+    public GameObject endPoint;
     public AudioClip winsAudiClip;
+
 
     private int totalScorePoints;
     private int fruits;
@@ -65,14 +67,14 @@ public class LevelManager : MonoBehaviour
         fruits--;
         //Debug.Log("scorePoints:" + scorePoints + "  totalScorePoints:" + totalScorePoints);
         Debug.Log("Fruits remains: " + fruits);
-        if (fruits <= 0) AllFruitsCollected();
+        if (fruits <= 0) endPoint.GetComponent<EndPoint>().MakeVisible();
 
     }
 
     public void LoadNextLevel() {
         Debug.Log("Loading next level");
-        if (currentScene.buildIndex + 1 < 4) {
-            SceneManager.LoadScene(currentScene.buildIndex + 1); // 4 Levels (FIXME)
+        if (currentScene.buildIndex + 1 < 4) { // 4 Levels (FIXME)
+            SceneManager.LoadScene(currentScene.buildIndex + 1);
         } else {
             audioSource.Stop();
             GetComponent<AudioSource>().clip = winsAudiClip;
@@ -87,14 +89,6 @@ public class LevelManager : MonoBehaviour
 
     public bool IsAllFruitsCollected() {
         return fruits <= 0;
-    }
-
-    public void AllFruitsCollected() {
-        Debug.Log("AllFruitsCollected");
-    }
-
-    public void FuncionChorra() {
-        Debug.Log("FuncionChorra");
     }
 
     public void LevelCompleted() {
