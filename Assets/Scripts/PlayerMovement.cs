@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool canJump;
     private bool isDead;
+    private Vector2 lastCheckPointTaked;
 
     void Start()
     {        
@@ -22,12 +23,13 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         canJump = false;
-        isDead = false;
+        //isDead = false;
+        lastCheckPointTaked = transform.position;
     }
 
     void Update()
     {
-        if (!isDead && !LevelManager.levelManager.IsLevelCompleted()) CheckMovement();
+        if (/*!isDead &&*/ !LevelManager.levelManager.IsLevelCompleted()) CheckMovement();
     }
 
     private void CheckMovement() {
@@ -71,11 +73,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("hurt");
         if (hp <= 0)
         {
-            isDead = true;
+            //isDead = true;
             //Debug.Log("Player DEAD!");
             //Destroy(gameObject, 0.5f);
-            spriteRenderer.enabled = false;
-            LevelManager.levelManager.ReloadLevel();
+            //spriteRenderer.enabled = false;
+            transform.position = lastCheckPointTaked;//LevelManager.levelManager.ReloadLevel();
         }
     }
 
@@ -85,5 +87,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("ground");
             canJump = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "CheckPoint") {            
+            collision.gameObject.GetComponent<CheckPoint>().Take();
+            lastCheckPointTaked = collision.gameObject.transform.position;
+        }   
     }
 }
