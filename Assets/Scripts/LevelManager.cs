@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         ResumeGame();
 
-        //Debug.Log("LevelManager - fruits: " + fruits + "  sceneName: " + currentScene.name + "  sceneIndex: " + currentScene.buildIndex);
+        Debug.Log("LevelManager - fruits: " + fruits + "  sceneName: " + currentScene.name + "  sceneIndex: " + currentScene.buildIndex);
         //Debug.Log(GetComponent<AudioSource>().clip);
     }
 
@@ -51,6 +51,7 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F2)) SceneManager.LoadScene("Level2");
         if (Input.GetKeyDown(KeyCode.F3)) SceneManager.LoadScene("Level3");
         if (Input.GetKeyDown(KeyCode.F4)) SceneManager.LoadScene("Level4");
+        if (Input.GetKeyDown(KeyCode.F5)) SceneManager.LoadScene("Level5");
 
         //if (Input.GetKeyDown(KeyCode.Return)) SceneManager.LoadScene(currentScene.buildIndex + 1);
 
@@ -73,7 +74,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel() {
         Debug.Log("Loading next level");
-        if (currentScene.buildIndex + 1 < 4) { // 4 Levels (FIXME)
+        if (currentScene.buildIndex + 1 < 5) { // 5 Levels (FIXME)
             SceneManager.LoadScene(currentScene.buildIndex + 1);
         } else {
             audioSource.Stop();
